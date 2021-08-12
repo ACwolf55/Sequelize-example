@@ -29,13 +29,17 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 //testing if connection works
 
-sequelize.authenticate()
+// sequelize.authenticate() <- replaced by sync
+
+sequelize.sync({
+    logging: console.log
+})
     .then( ()=>{console.log('DB connected !')})
     .catch((err)=>{
     console.error('DB NOT CONNECTED =O ',err)
     })
-    
-app.listen(SERVER_PORT, console.log(`${SERVER_PORT} is running~`))
+
+app.listen(SERVER_PORT, console.log(`PORT ${SERVER_PORT} is running~`))
     
 
     //We will create our tables in the Models folder and each table will be a file 
