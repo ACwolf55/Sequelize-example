@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 const ctrl = require('./controllers')
-const sequelize = require('./models/database')
+const sequelize = require('./database')
+const cors = require('cors')
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(cors())
 
 
 // Sequelize is available via npm

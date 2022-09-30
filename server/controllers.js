@@ -1,5 +1,5 @@
 const { restart } = require("nodemon");
-const db = require("./models/database")
+const db = require("./database")
 const {DataTypes, Sequelize } = require("sequelize");
 const User = db.user;
 
