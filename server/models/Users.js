@@ -1,17 +1,9 @@
-/*
-const { DataTypes } = require('sequelize')
+const Sequelize = require('sequelize') 
 
-	// Primary key is automatically added to every table in sequelize under name 'id'
-		// this is the id format:
-		// id: {
-		// 	allowNull: false,
-		// 	autoIncrement: true,
-		// 	primaryKey: true,
-		// 	type: DataTypes.INTEGER
-		// },
-*/
-module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define('users2', {
+const sequelize = require('./database')
+
+
+    const Users = sequelize.define('users', {
         username: {
             type: Sequelize.STRING,
             allowNull: false, //cannot be emptycode
@@ -21,8 +13,13 @@ module.exports = (sequelize, Sequelize) => {
                 // this validate  & REGEX is recommended by the Sequelize team, it will make sure
                 //usernames to have length of at least 3, and only use letters, numbers and underscores.
             }
+        },
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            allowNull:false,
+            primaryKey:true
         }
     });
 
-    return User;
-}
+module.exports = Users
